@@ -13,7 +13,7 @@ class ImportWorker
 
     @items = []
   
-    xlsx.sheet(0).each(title: "title", url: "url", lat: "lat", long: "long") do |row|
+    xlsx.sheet(0).each(title: "title", url: "url", lat: "long", long: "lat") do |row|
       @items.push(row.merge({created_at: DateTime.now, updated_at: DateTime.now}))
     end
 

@@ -3,8 +3,8 @@ class CreateItems < ActiveRecord::Migration[6.1]
     create_table :items do |t|
       t.string :title
       t.string :url
-      t.bigint :lat
-      t.bigint :long
+      t.decimal :lat
+      t.decimal :long
 
       t.timestamps
     end

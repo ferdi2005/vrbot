@@ -1,0 +1,4 @@
+:schedule:
+  import_worker:
+    cron: "* 0 * * *"
+    class: ImportWorker

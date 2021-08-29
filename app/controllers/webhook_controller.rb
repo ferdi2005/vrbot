@@ -20,19 +20,19 @@ class WebhookController < ApplicationController
     Telegram::Bot::Client.run(ENV["TOKEN"]) do |bot|
       if search.nil?
         if params[:message][:text].start_with?("/start")
-          bot.api.send_message(chat_id: params[:message][:chat][:id], text: "Benvenuto in questo bot! Usa l'opzione che trovi nel menu con la graffetta (📎) per inviarmi la tua posizione o inserisci un indirizzo o una città.")
+          bot.api.send_message(chat_id: params[:message][:chat][:id], text: "Scopri con VeronicaRouteBot le veroniche nel raggio di 10 km: clicca sulla graffetta (📎) e scegli la tua posizione o inserisci una località.\nSe trovi una veronica segnalala qui https://veronicaroute.com/segnala-una-veronica-2/")
         elsif params[:message][:chat][:type] == "private"
-          bot.api.send_message(chat_id: params[:message][:chat][:id], text: "Inserisci un indirizzo o invia le tue coordinate usando la graffetta.")
+          bot.api.send_message(chat_id: params[:message][:chat][:id], text: "Inserisci un indirizzo/una città o invia le tue coordinate usando la graffetta (📎).")
         end
       else 
         items = []
-        Item.near(search, 30, units: :km).first(50).each do |item|
+        Item.near(search, 10, units: :km).first(20).each do |item|
           items.push("<b><i>#{item.title}</i></b>\n#{item.url}")
         end
         if items.empty?
           bot.api.send_message(chat_id: params[:message][:chat][:id], text: "Nessun risultato trovato.")
         else
-          bot.api.send_message(chat_id: params[:message][:chat][:id], text: items.join("\n---\n").prepend("<b>Risultati trovati</b>\n\n"), parse_mode: :HTML)
+          bot.api.send_message(chat_id: params[:message][:chat][:id], text: items.join("\n---\n").prepend("<b>Risultati trovati</b>\n\n"), parse_mode: :HTML, disable_web_page_preview: true)
         end
       end
     end

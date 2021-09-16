@@ -20,7 +20,7 @@ class WebhookController < ApplicationController
     Telegram::Bot::Client.run(ENV["TOKEN"]) do |bot|
       if search.nil?
         if params[:message][:text].start_with?("/start")
-          bot.api.send_message(chat_id: params[:message][:chat][:id], text: "Scopri con VeronicaRouteBot le veroniche nel raggio di 10 km: clicca sulla graffetta (📎) e scegli la tua posizione o inserisci una località.\nSe trovi una veronica segnalala qui https://veronicaroute.com/segnala-una-veronica-2/")
+          bot.api.send_message(chat_id: params[:message][:chat][:id], text: "Scopri con VeronicaRouteBot le veroniche nel raggio di 10 km: clicca sulla graffetta (📎) e scegli la tua posizione o inserisci una località.")
         elsif params[:message][:chat][:type] == "private"
           bot.api.send_message(chat_id: params[:message][:chat][:id], text: "Inserisci un indirizzo/una città o invia le tue coordinate usando la graffetta (📎).")
         end

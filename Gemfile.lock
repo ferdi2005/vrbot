@@ -349,7 +349,7 @@ DEPENDENCIES
   sidekiq (~> 6.2)
   sidekiq-scheduler (~> 3.1)
   spring
-  telegram-bot-ruby (~> 0.16.0)
+  telegram-bot-ruby
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

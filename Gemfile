@@ -1,14 +1,15 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 # Use pg as the database for Active Record
 gem 'pg', '~> 1.1'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -42,6 +43,14 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'capistrano',         require: false
+  gem 'capistrano-yarn',     require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
+  gem 'capistrano-sidekiq', require: false
 end
 
 group :test do
@@ -67,4 +76,6 @@ gem "httparty", "~> 0.18.1"
 
 gem "telegram-bot-ruby", "~> 0.16.0"
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem "net-smtp", require: false
+gem 'net-imap', require: false
+gem 'net-pop', require: false

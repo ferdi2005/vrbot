@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  host: localhost
   database: vrbot_production
   username: vrbot
   password: <%= ENV['VRBOT_DATABASE_PASSWORD'] %>

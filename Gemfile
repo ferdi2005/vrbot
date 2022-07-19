@@ -74,7 +74,7 @@ gem "roo", "~> 2.8"
 
 gem "httparty", "~> 0.18.1"
 
-gem "telegram-bot-ruby"
+gem "telegram-bot-ruby", github: "atipugin/telegram-bot-ruby"
 
 gem "net-smtp", require: false
 gem 'net-imap', require: false

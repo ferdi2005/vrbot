@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/atipugin/telegram-bot-ruby.git
+  revision: cbe08bc3a79a72e316b47b309a0c184afebf467c
+  specs:
+    telegram-bot-ruby (0.19.2)
+      dry-inflector
+      faraday (~> 2.0)
+      faraday-multipart (~> 1.0)
+      virtus (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -126,6 +136,8 @@ GEM
     faraday (2.3.0)
       faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
     faraday-net_http (2.0.3)
     ffi (1.15.5)
     fugit (1.5.3)
@@ -161,6 +173,7 @@ GEM
     minitest (5.16.2)
     msgpack (1.5.3)
     multi_xml (0.6.0)
+    multipart-post (2.2.3)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -275,10 +288,6 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     strscan (3.0.3)
-    telegram-bot-ruby (0.16.0)
-      dry-inflector
-      faraday
-      virtus (~> 2.0)
     thor (1.2.1)
     thread_safe (0.3.6)
     thwait (0.2.0)
@@ -349,7 +358,7 @@ DEPENDENCIES
   sidekiq (~> 6.2)
   sidekiq-scheduler (~> 3.1)
   spring
-  telegram-bot-ruby
+  telegram-bot-ruby!
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
